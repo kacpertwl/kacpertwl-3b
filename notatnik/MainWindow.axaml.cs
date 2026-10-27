@@ -2,8 +2,10 @@ using System;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Styling;
 
 namespace notatnik;
 
@@ -15,6 +17,11 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         RefreshNotesList();
+
+        if (Application.Current is not null)
+        {
+            ThemeToggle.IsChecked = Application.Current.ActualThemeVariant == ThemeVariant.Dark;
+        }
     }
 
     private static string ResolveNotesFilePath()
@@ -82,6 +89,16 @@ public partial class MainWindow : Window
         catch (Exception ex)
         {
             StatusText.Text = $"Nie udało się zapisać: {ex.Message}";
+        }
+    }
+
+    private void OnThemeToggleChanged(object? sender, RoutedEventArgs e)
+    {
+        if (Application.Current is not null)
+        {
+            Application.Current.RequestedThemeVariant = ThemeToggle.IsChecked == true
+                ? ThemeVariant.Dark
+                : ThemeVariant.Light;
         }
     }
 }

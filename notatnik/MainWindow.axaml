@@ -18,7 +18,14 @@
         </StackPanel>
 
         <DockPanel Grid.Column="1">
-            <TextBlock DockPanel.Dock="Top" Text="Zapisane notatki:" FontWeight="Bold" Margin="0,0,0,10" />
+            <StackPanel DockPanel.Dock="Top" Margin="0,0,0,10" Spacing="8">
+                <ToggleSwitch Name="ThemeToggle"
+                              OnContent="Ciemny"
+                              OffContent="Jasny"
+                              IsCheckedChanged="OnThemeToggleChanged"
+                              HorizontalAlignment="Right" />
+                <TextBlock Text="Zapisane notatki:" FontWeight="Bold" />
+            </StackPanel>
             <ListBox Name="NotesList" />
         </DockPanel>
     </Grid>

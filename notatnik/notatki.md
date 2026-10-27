@@ -1,3 +1,6 @@
+﻿## 2026-10-27 14:56 — notatka
+notatka 1
+
 ## 2026-10-27 14:55 — Piąta notatka — test trwałości danych
 Upewniamy się, że po dodaniu piątej notatki nic nie zostało ucięte ani nadpisane. Wszystkie 5 wpisów pozostaje nienaruszonych.
 

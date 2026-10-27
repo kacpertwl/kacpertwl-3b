@@ -69,12 +69,19 @@ public partial class MainWindow : Window
         var fullContent = string.IsNullOrEmpty(existingContent)
             ? newEntry
             : $"{newEntry}\n\n{existingContent}";
+        try
+        {
+            File.WriteAllText(_notesFilePath, fullContent, Encoding.UTF8);
+            StatusText.Text = "Zapisano";
 
-        File.WriteAllText(_notesFilePath, fullContent, Encoding.UTF8);
+            TitleBox.Text = string.Empty;
+            ContentBox.Text = string.Empty;
 
-        TitleBox.Text = string.Empty;
-        ContentBox.Text = string.Empty;
-
-        RefreshNotesList();
+            RefreshNotesList();
+        }
+        catch (Exception ex)
+        {
+            StatusText.Text = $"Nie udało się zapisać: {ex.Message}";
+        }
     }
 }

@@ -14,6 +14,7 @@
             <TextBox Name="ContentBox" AcceptsReturn="True" Height="220" TextWrapping="Wrap" PlaceholderText="Wpisz treść..." />
             
             <Button Name="SaveButton" Content="Zapisz" Click="OnSaveClicked" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+            <TextBlock Name="StatusText" Margin="0,5,0,0" TextWrapping="Wrap" />
         </StackPanel>
 
         <DockPanel Grid.Column="1">

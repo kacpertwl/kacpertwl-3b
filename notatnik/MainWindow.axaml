@@ -2,8 +2,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="550"
         x:Class="notatnik.MainWindow"
-        Title="notatnik">
-    Welcome to Avalonia!
+        Title="Notatnik" Width="700" Height="500">
+    <Grid ColumnDefinitions="*, 250" Margin="15">
+        <StackPanel Grid.Column="0" Spacing="10" Margin="0,0,15,0">
+            <TextBlock Text="Tytuł notatki:" FontWeight="Bold" />
+            <TextBox Name="TitleBox" Watermark="Wpisz tytuł..." />
+            
+            <TextBlock Text="Treść notatki:" FontWeight="Bold" />
+            <TextBox Name="ContentBox" AcceptsReturn="True" Height="220" TextWrapping="Wrap" Watermark="Wpisz treść..." />
+            
+            <Button Name="SaveButton" Content="Zapisz" Click="OnSaveClicked" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+        </StackPanel>
+
+        <DockPanel Grid.Column="1">
+            <TextBlock DockPanel.Dock="Top" Text="Zapisane notatki:" FontWeight="Bold" Margin="0,0,0,10" />
+            <ListBox Name="NotesList" />
+        </DockPanel>
+    </Grid>
 </Window>

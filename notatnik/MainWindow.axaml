@@ -8,10 +8,10 @@
     <Grid ColumnDefinitions="*, 250" Margin="15">
         <StackPanel Grid.Column="0" Spacing="10" Margin="0,0,15,0">
             <TextBlock Text="Tytuł notatki:" FontWeight="Bold" />
-            <TextBox Name="TitleBox" Watermark="Wpisz tytuł..." />
+            <TextBox Name="TitleBox" PlaceholderText="Wpisz tytuł..." />
             
             <TextBlock Text="Treść notatki:" FontWeight="Bold" />
-            <TextBox Name="ContentBox" AcceptsReturn="True" Height="220" TextWrapping="Wrap" Watermark="Wpisz treść..." />
+            <TextBox Name="ContentBox" AcceptsReturn="True" Height="220" TextWrapping="Wrap" PlaceholderText="Wpisz treść..." />
             
             <Button Name="SaveButton" Content="Zapisz" Click="OnSaveClicked" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
         </StackPanel>

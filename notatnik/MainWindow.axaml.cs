@@ -63,7 +63,8 @@ public partial class MainWindow : Window
 
     private void OnSaveClicked(object? sender, RoutedEventArgs e)
     {
-        var title = (TitleBox.Text ?? "Bez tytułu").Trim();
+        var rawTitle = TitleBox.Text?.Trim();
+        var title = string.IsNullOrWhiteSpace(rawTitle) ? "Bez tytułu" : rawTitle;
         var content = (ContentBox.Text ?? string.Empty).Trim();
 
         var timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
